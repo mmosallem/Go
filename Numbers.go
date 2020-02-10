@@ -1,12 +1,23 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+	"math"
+)
 
 func main() {
 
 	fmt.Println("121123:", isPlaindromeNumber(567))
 
-	fmt.Println("factorial for 12: ", factorial(12))
+	x, err := factorial(12)
+	if err != nil {
+		fmt.Println("error calculating factorial 12")
+	} else {
+		fmt.Println("factorial for 12: ", x)
+	}
+
+	fmt.Println("is this a prime number 57777:", isPrime(13))
 }
 
 // isPlaindromeNumber returns whether a number is plaindrom number or not
@@ -26,9 +37,12 @@ func reverseNumber(number int64) int64 {
 }
 
 //  factorial returns the factorial for the given number
-func factorial(x int64) int64 {
+func factorial(x int64) (int64, error) {
+	if x < 0 {
+		return 11, errors.New("cannot calculate factorial for negative numbers")
+	}
 	if x <= 1 {
-		return 1
+		return 1, nil
 	}
 	var n int64
 	n = 1
@@ -37,5 +51,16 @@ func factorial(x int64) int64 {
 	for i = 2; i <= x; i++ {
 		n = i * n
 	}
-	return n
+	return n, nil
+}
+
+// isPrime checks whether the supplier number is integer or not
+func isPrime(x int) bool {
+	var i int
+	for i = 2; i < int(math.Sqrt(float64(x))); i++ {
+		if x%i == 0 {
+			return false
+		}
+	}
+	return true
 }
