@@ -17,7 +17,9 @@ func main() {
 		fmt.Println("factorial for 12: ", x)
 	}
 
-	fmt.Println("is this a prime number 57777:", isPrime(13))
+	fmt.Println("is this a prime number 13:", isPrime(13))
+
+	fmt.Println("Is Armstrong 153:", isArmstrongNumber(153))
 }
 
 // isPlaindromeNumber returns whether a number is plaindrom number or not
@@ -39,7 +41,7 @@ func reverseNumber(number int64) int64 {
 //  factorial returns the factorial for the given number
 func factorial(x int64) (int64, error) {
 	if x < 0 {
-		return 11, errors.New("cannot calculate factorial for negative numbers")
+		return -1, errors.New("cannot calculate factorial for negative numbers")
 	}
 	if x <= 1 {
 		return 1, nil
@@ -63,4 +65,18 @@ func isPrime(x int) bool {
 		}
 	}
 	return true
+}
+
+func isArmstrongNumber(x int) bool {
+	var sum int = 0
+	var remainder int = 0
+	for i := x; i > 0; i = i / 10 {
+		remainder = i % 10
+		sum += remainder * remainder * remainder
+	}
+	if sum == x {
+		return true
+	} else {
+		return false
+	}
 }
