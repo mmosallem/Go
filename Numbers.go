@@ -20,6 +20,9 @@ func main() {
 	fmt.Println("is this a prime number 13:", isPrime(13))
 
 	fmt.Println("Is Armstrong 153:", isArmstrongNumber(153))
+
+	var arr = []int{10, 20, 30, 20, 10, 10, 10}
+	fmt.Println("Majority item in {10, 20, 30, 20, 10,10,10}:", getMajorityItem(arr))
 }
 
 // isPlaindromeNumber returns whether a number is plaindrom number or not
@@ -67,6 +70,8 @@ func isPrime(x int) bool {
 	return true
 }
 
+//isArmstrongNumber checks if a number is armstrong number
+//An Armstrong number is a number such that the sum of its digits raised to the third power is equal to the number itself.
 func isArmstrongNumber(x int) bool {
 	var sum int = 0
 	var remainder int = 0
@@ -79,4 +84,24 @@ func isArmstrongNumber(x int) bool {
 	} else {
 		return false
 	}
+}
+
+//getMajorityItem returns the majority item in array
+func getMajorityItem(arr []int) int {
+
+	var m = make(map[int]int)
+	var majority int = len(arr) / 2
+	for _, x := range arr {
+		_, ok := m[x]
+		if ok {
+			m[x]++
+			if m[x] > majority {
+				return x
+			}
+		} else {
+			m[x] = 1
+		}
+	}
+
+	return -1
 }
