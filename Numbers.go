@@ -23,6 +23,9 @@ func main() {
 
 	var arr = []int{10, 20, 30, 20, 10, 10, 10}
 	fmt.Println("Majority item in {10, 20, 30, 20, 10,10,10}:", getMajorityItem(arr))
+
+	fmt.Println("Fibonacci of 15:", getFibinacci(15))
+	fmt.Println("IsSquere 2500:", isSquare(2500))
 }
 
 // isPlaindromeNumber returns whether a number is plaindrom number or not
@@ -104,4 +107,38 @@ func getMajorityItem(arr []int) int {
 	}
 
 	return -1
+}
+
+//getFibinacci
+func getFibinacci(x int) int {
+	var arr = make([]int, x)
+	arr[0] = 0
+	arr[1] = 1
+	for i := 2; i < x; i++ {
+		arr[i] = arr[i-1] + arr[i-2]
+	}
+	return arr[x-1] + arr[x-2]
+}
+
+//isSquare returns whether the number is square number of not
+func isSquare(n int) bool {
+	if n < 0 {
+		n = -n
+	}
+
+	if n <= 1 {
+		return true
+	}
+	var currSq = 4
+	var currN = 2
+
+	for currSq <= n {
+		if currSq == n {
+			return true
+		}
+		currN++
+		currSq = currN * currN
+
+	}
+	return false
 }
