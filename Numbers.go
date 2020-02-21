@@ -61,9 +61,9 @@ func isArmstrongNumber(x int) bool {
 	}
 	if sum == x {
 		return true
-	} else {
-		return false
 	}
+	return false
+
 }
 
 //getMajorityItem returns the majority item in array
