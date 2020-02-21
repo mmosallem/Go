@@ -26,4 +26,7 @@ func main() {
 	var anotherArr = []int{10, 20, 30, 40, 50}
 	fmt.Print("reversing array ", anotherArr)
 	fmt.Print(" result:", reverseArray(anotherArr))
+
+	fmt.Println("checking array is sorted ", anotherArr)
+	fmt.Println("result:", isArraySortedMax1Swap(anotherArr))
 }
