@@ -29,4 +29,8 @@ func main() {
 
 	fmt.Println("checking array is sorted ", anotherArr)
 	fmt.Println("result:", isArraySortedMax1Swap(anotherArr))
+
+	var str1 string = "abde"
+	var str2 string = "bedav"
+	fmt.Println("is permutation ", str1, " and ", str2, ": ", isPermutation(str1, str2))
 }
