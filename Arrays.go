@@ -10,6 +10,7 @@ func reverseArray(arr []int) []int {
 }
 
 //isArraySortedMax1Swap checks to see if the array is sorted in ascending order, or if it can be sorted with 1 item change
+//scan through the array using a window of 3 elements
 func isArraySortedMax1Swap(arr []int) bool {
 	var swapped bool = false
 
