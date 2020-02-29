@@ -46,3 +46,4 @@ func isPermutation(a string, b string) bool {
 	b = sortStringByCharacter(b)
 	return a == b
 }
+

@@ -33,4 +33,7 @@ func main() {
 	var str1 string = "abde"
 	var str2 string = "bedav"
 	fmt.Println("is permutation ", str1, " and ", str2, ": ", isPermutation(str1, str2))
+
+	var strBalanceTEst = "ab(ccd)+[fdf]+{}}"
+	fmt.Println("check if string is balanced ", strBalanceTEst, ":", isBalanced(strBalanceTEst))
 }

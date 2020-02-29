@@ -37,3 +37,29 @@ func (s *Stack) Peek() (string, bool) {
 
 	return x, true
 }
+
+//isBalanced checks if the string is balanced strings meaning [],{},() brackets are balanced
+func isBalanced(str string) bool {
+	var s Stack
+	r := []rune(str)
+	for i := 0; i < len(r); i++ {
+		var curr = string(r[i])
+		if curr == "[" || curr == "{" || curr == "(" {
+			s.Push(curr)
+		} else if curr == "]" || curr == "}" || curr == ")" {
+			var prev, b = s.Pop()
+			if !b {
+				return false
+			}
+			if (prev == "[" && curr != "]") || (prev == "{" && curr != "}") || (prev == "(" && curr != ")") {
+				return false
+			}
+
+		}
+
+	}
+	if s.IsEmpty() {
+		return true
+	}
+	return false
+}
