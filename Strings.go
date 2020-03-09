@@ -47,3 +47,28 @@ func isPermutation(a string, b string) bool {
 	return a == b
 }
 
+//isBalanced checks if the string is balanced strings meaning [],{},() brackets are balanced
+func isBalanced(str string) bool {
+	var s StackString
+	r := []rune(str)
+	for i := 0; i < len(r); i++ {
+		var curr = string(r[i])
+		if curr == "[" || curr == "{" || curr == "(" {
+			s.Push(curr)
+		} else if curr == "]" || curr == "}" || curr == ")" {
+			var prev, b = s.Pop()
+			if !b {
+				return false
+			}
+			if (prev == "[" && curr != "]") || (prev == "{" && curr != "}") || (prev == "(" && curr != ")") {
+				return false
+			}
+
+		}
+
+	}
+	if s.IsEmpty() {
+		return true
+	}
+	return false
+}
