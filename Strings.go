@@ -1,6 +1,9 @@
 package main
 
-import "sort"
+import (
+	"fmt"
+	"sort"
+)
 
 type sortRunes []rune
 
@@ -45,6 +48,18 @@ func isPermutation(a string, b string) bool {
 	a = sortStringByCharacter(a)
 	b = sortStringByCharacter(b)
 	return a == b
+}
+
+//printPermutaions prints all permutaions of a string
+func printPermutaions(str string, prefix string) {
+	if len(str) == 0 {
+		fmt.Println(prefix)
+	} else {
+		for i := 0; i < len(str); i++ {
+			restOfstring := string(str[0:i]) + string(str[i+1:])
+			printPermutaions(restOfstring, prefix+string(str[i]))
+		}
+	}
 }
 
 //isBalanced checks if the string is balanced strings meaning [],{},() brackets are balanced

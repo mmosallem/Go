@@ -36,4 +36,8 @@ func main() {
 
 	var strBalanceTEst = "ab(ccd)+[fdf]+{}}"
 	fmt.Println("check if string is balanced ", strBalanceTEst, ":", isBalanced(strBalanceTEst))
+
+	var testPerm string = "abc"
+	fmt.Println("printing all permutations of ", testPerm)
+	printPermutaions(testPerm, "")
 }
