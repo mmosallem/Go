@@ -40,4 +40,8 @@ func main() {
 	var testPerm string = "abc"
 	fmt.Println("printing all permutations of ", testPerm)
 	printPermutaions(testPerm, "")
+
+	var testSubstring string = "abcde"
+	fmt.Println("printing all subsctrings of ", testSubstring)
+	printAllSubstrings(testSubstring)
 }

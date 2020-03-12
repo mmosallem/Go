@@ -87,3 +87,13 @@ func isBalanced(str string) bool {
 	}
 	return false
 }
+
+//printAllSubstrings prints all substrings of the supplied string
+func printAllSubstrings(str string) {
+	for l := 1; l < len(str); l++ {
+		for i := 0; i <= len(str)-l; i++ {
+			var s = str[i : i+l]
+			fmt.Println(s)
+		}
+	}
+}
