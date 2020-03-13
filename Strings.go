@@ -97,3 +97,13 @@ func printAllSubstrings(str string) {
 		}
 	}
 }
+
+func getAllSubstringsRemoving1Letter(str string) []string {
+	var result []string
+
+	for i := 0; i < len(str); i++ {
+		result = append(result, string(str[0:i])+string(str[i+1:]))
+
+	}
+	return result
+}

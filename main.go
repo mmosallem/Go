@@ -44,4 +44,8 @@ func main() {
 	var testSubstring string = "abcde"
 	fmt.Println("printing all subsctrings of ", testSubstring)
 	printAllSubstrings(testSubstring)
+
+	var testSubstringRemove1 = "abc"
+	strs := getAllSubstringsRemoving1Letter(testSubstringRemove1)
+	fmt.Println("printing all subsctrings (removing 1 letter) of ", testSubstringRemove1, ":", strs)
 }
