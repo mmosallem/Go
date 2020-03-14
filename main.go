@@ -48,4 +48,7 @@ func main() {
 	var testSubstringRemove1 = "abc"
 	strs := getAllSubstringsRemoving1Letter(testSubstringRemove1)
 	fmt.Println("printing all subsctrings (removing 1 letter) of ", testSubstringRemove1, ":", strs)
+
+	var testCompress = "aaaccddeff"
+	fmt.Println("compressing string ", testCompress, ". result:", compress(testCompress))
 }

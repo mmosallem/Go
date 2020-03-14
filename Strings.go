@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"sort"
+	"strconv"
 )
 
 type sortRunes []rune
@@ -106,4 +107,31 @@ func getAllSubstringsRemoving1Letter(str string) []string {
 
 	}
 	return result
+}
+
+// compress string: aaaccddeff -> a3c2d2e1f2
+func compress(str string) string {
+	if len(str) == 0 {
+		return ""
+	}
+	res := ""
+	lastChar := str[0]
+	count := 1
+	for i := 1; i < len(str); i++ {
+		if str[i] == lastChar {
+			count++
+		} else {
+			res += string(lastChar) + strconv.Itoa(count)
+			if len(res) > len(str) {
+				return str
+			}
+			lastChar = str[i]
+			count = 1
+		}
+	}
+	res += string(lastChar) + strconv.Itoa(count)
+	if len(res) > len(str) {
+		return str
+	}
+	return res
 }
