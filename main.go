@@ -54,4 +54,7 @@ func main() {
 
 	var testPlaindromeStr = "abcba"
 	fmt.Println("Is Plaindrome string ", testPlaindromeStr, ": ", isPlaindrome(testPlaindromeStr))
+
+	var testRemoveDups = "aabvcgghh"
+	fmt.Println("remove dups from ", testRemoveDups, ":", removeDupsChars(testRemoveDups))
 }

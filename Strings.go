@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"sort"
 	"strconv"
+	"strings"
 )
 
 type sortRunes []rune
@@ -152,4 +153,18 @@ func isPlaindromeString(str string, start int, end int) bool {
 		end--
 	}
 	return true
+}
+
+//removeDupsChars removes dups characters from string
+func removeDupsChars(str string) string {
+	var result string = ""
+	var table string = ""
+	for i := 0; i < len(str); i++ {
+		if strings.IndexByte(table, str[i]) == -1 {
+			result += string(str[i])
+			table += string(str[i])
+		}
+
+	}
+	return result
 }
