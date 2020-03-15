@@ -109,7 +109,7 @@ func getAllSubstringsRemoving1Letter(str string) []string {
 	return result
 }
 
-// compress string: aaaccddeff -> a3c2d2e1f2
+//compress string: aaaccddeff -> a3c2d2e1f2
 func compress(str string) string {
 	if len(str) == 0 {
 		return ""
@@ -134,4 +134,22 @@ func compress(str string) string {
 		return str
 	}
 	return res
+}
+
+//isPlaindrome checks whether the string is plaindrome or not
+func isPlaindrome(str string) bool {
+	return isPlaindromeString(str, 0, len(str)-1)
+}
+
+//isPlaindromeString checks whether the string is plaindrome or not
+func isPlaindromeString(str string, start int, end int) bool {
+
+	for start < end {
+		if str[start] != str[end] {
+			return false
+		}
+		start++
+		end--
+	}
+	return true
 }

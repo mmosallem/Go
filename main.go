@@ -51,4 +51,7 @@ func main() {
 
 	var testCompress = "aaaccddeff"
 	fmt.Println("compressing string ", testCompress, ". result:", compress(testCompress))
+
+	var testPlaindromeStr = "abcba"
+	fmt.Println("Is Plaindrome string ", testPlaindromeStr, ": ", isPlaindrome(testPlaindromeStr))
 }
