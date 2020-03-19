@@ -57,4 +57,8 @@ func main() {
 
 	var testRemoveDups = "aabvcgghh"
 	fmt.Println("remove dups from ", testRemoveDups, ":", removeDupsChars(testRemoveDups))
+
+	var testLongestCommonStr1 = "asdabyuju"
+	var testLongestCommonStr2 = "asfsdnnnsd"
+	fmt.Println("longest common substring for ", testLongestCommonStr1, " and ", testLongestCommonStr2, " is:", longestCommonSubstring(testLongestCommonStr1, testLongestCommonStr2))
 }

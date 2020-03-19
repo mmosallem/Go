@@ -168,3 +168,51 @@ func removeDupsChars(str string) string {
 	}
 	return result
 }
+
+func longestCommonSubstring(str1 string, str2 string) string {
+
+	if len(str1) > len(str2) {
+		return longestCommonSubstringInternal(str2, str1)
+	} else {
+		return longestCommonSubstringInternal(str1, str2)
+	}
+}
+func longestCommonSubstringInternal(small string, large string) string {
+	if strings.Contains(large, small) {
+		return small
+	}
+	if len(small) <= 1 {
+		return ""
+	}
+	var substr = getAllsubstringsOfLengthK(small, len(small)-1)
+
+	for _, s := range substr {
+		if strings.Contains(large, s) {
+			return s
+		}
+		var lcs = longestCommonSubstringInternal(s, large)
+		if lcs != "" {
+			return lcs
+		}
+	}
+
+	return ""
+}
+
+func getAllsubstringsOfLengthK(str string, k int) []string {
+
+	if str == "" {
+		return []string{}
+	}
+	if k > len(str) {
+		return []string{str}
+	}
+
+	size := len(str) - k + 1
+	var res = make([]string, size)
+
+	for i := 0; i < len(res); i++ {
+		res[i] = str[i:k]
+	}
+	return res
+}
