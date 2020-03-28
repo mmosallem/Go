@@ -58,7 +58,16 @@ func main() {
 	var testRemoveDups = "aabvcgghh"
 	fmt.Println("remove dups from ", testRemoveDups, ":", removeDupsChars(testRemoveDups))
 
+	var testGetSubstrings = "abcde"
+	var l = 3
+	fmt.Println("get all substrings of length ", l, " for string ", testGetSubstrings, ": ", getAllsubstringsOfLengthK(testGetSubstrings, l))
 	var testLongestCommonStr1 = "asdabyuju"
-	var testLongestCommonStr2 = "asfsdnnnsd"
+	var testLongestCommonStr2 = "asfsdannnsd"
 	fmt.Println("longest common substring for ", testLongestCommonStr1, " and ", testLongestCommonStr2, " is:", longestCommonSubstring(testLongestCommonStr1, testLongestCommonStr2))
+
+	var inCorrectWord = "doeg"
+	var dicitionary = make(map[string]string)
+	dicitionary["dog"] = "dog"
+	dicitionary["cat"] = "cat"
+	fmt.Println("Number of chars to delete to have a correct word from ", inCorrectWord, " is:", numberOfDeletionToGetCorrectWord(inCorrectWord, dicitionary))
 }

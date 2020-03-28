@@ -169,13 +169,14 @@ func removeDupsChars(str string) string {
 	return result
 }
 
+//longestCommonSubstring returns the longest common substring for the supplied strings
 func longestCommonSubstring(str1 string, str2 string) string {
 
 	if len(str1) > len(str2) {
 		return longestCommonSubstringInternal(str2, str1)
-	} else {
-		return longestCommonSubstringInternal(str1, str2)
 	}
+	return longestCommonSubstringInternal(str1, str2)
+
 }
 func longestCommonSubstringInternal(small string, large string) string {
 	if strings.Contains(large, small) {
@@ -184,21 +185,27 @@ func longestCommonSubstringInternal(small string, large string) string {
 	if len(small) <= 1 {
 		return ""
 	}
+
+	var result = ""
 	var substr = getAllsubstringsOfLengthK(small, len(small)-1)
 
 	for _, s := range substr {
 		if strings.Contains(large, s) {
-			return s
+			if len(s) > len(result) {
+				result = s
+			}
+
 		}
 		var lcs = longestCommonSubstringInternal(s, large)
-		if lcs != "" {
-			return lcs
+		if len(lcs) > len(result) {
+			result = lcs
 		}
 	}
 
-	return ""
+	return result
 }
 
+//getAllsubstringsOfLengthK gets all substrings of length k for the supplied string
 func getAllsubstringsOfLengthK(str string, k int) []string {
 
 	if str == "" {
@@ -212,7 +219,33 @@ func getAllsubstringsOfLengthK(str string, k int) []string {
 	var res = make([]string, size)
 
 	for i := 0; i < len(res); i++ {
-		res[i] = str[i:k]
+		res[i] = str[i : k+i]
 	}
 	return res
+}
+
+//numberOfDeletionToGetCorrectWord returns the number of characters to be deleted from the supplied string to have a correct word that exists in the supplied dictionary
+func numberOfDeletionToGetCorrectWord(word string, dictionary map[string]string) int {
+
+	if dictionary[word] != "" {
+		return 0
+	}
+
+	var queue []string
+	queue = append(queue, word)
+
+	for len(queue) > 0 {
+		var str = queue[0]
+		queue = queue[1:]
+
+		if dictionary[str] != "" {
+			return len(word) - len(str)
+		}
+		for i := 0; i < len(str); i++ {
+			queue = append(queue, str[0:i]+str[i+1:i+2])
+		}
+	}
+
+	return -1
+
 }
