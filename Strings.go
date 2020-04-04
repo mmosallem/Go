@@ -242,7 +242,7 @@ func numberOfDeletionToGetCorrectWord(word string, dictionary map[string]string)
 			return len(word) - len(str)
 		}
 		for i := 0; i < len(str); i++ {
-			queue = append(queue, str[0:i]+str[i+1:i+2])
+			queue = append(queue, str[0:i]+str[i+1:])
 		}
 	}
 
