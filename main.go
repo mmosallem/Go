@@ -70,4 +70,8 @@ func main() {
 	dicitionary["dog"] = "dog"
 	dicitionary["cat"] = "cat"
 	fmt.Println("Number of chars to delete to have a correct word from ", inCorrectWord, " is:", numberOfDeletionToGetCorrectWord(inCorrectWord, dicitionary))
+
+	var arrFrequestElement = []string{"a", "a", "b", "b", "c"}
+	var kFrequestElement = 0
+	fmt.Println("kthMostFrequestElement in arr", arrFrequestElement, "k=", kFrequestElement, " is :", kthMostFrequestElement(arrFrequestElement, kFrequestElement))
 }

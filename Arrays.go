@@ -1,5 +1,7 @@
 package main
 
+import "sort"
+
 //reverseArray reverses an array
 func reverseArray(arr []int) []int {
 
@@ -34,4 +36,25 @@ func isArraySortedMax1Swap(arr []int) bool {
 	}
 
 	return true
+}
+
+//kthMostFrequestElement returns the kth most frequent element in the array
+func kthMostFrequestElement(arr []string, k int) string {
+	var freq = make(map[string]int)
+
+	for i := 0; i < len(arr); i++ {
+		if freq[arr[i]] >= 1 {
+			freq[arr[i]] = freq[arr[i]] + 1
+		} else {
+			freq[arr[i]] = 1
+		}
+	}
+	hack := map[int]string{}
+	hackkeys := []int{}
+	for key, val := range freq {
+		hack[val] = key
+		hackkeys = append(hackkeys, val)
+	}
+	sort.Ints(hackkeys)
+	return hack[hackkeys[len(hackkeys)-k-1]]
 }
